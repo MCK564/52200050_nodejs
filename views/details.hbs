@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi tiết sản phẩm</title>
+</head>
+<body>
+    <h1>{{product.name}}</h1>
+    <h2>Giá: {{product.price}}</h2>
+
+    <div>
+        <h3>Hình ảnh sản phẩm:</h3>
+        {{#each product.images}}
+            <img src="/{{this}}" alt="Product image" width="100px">
+        {{/each}}
+    </div>
+
+    <div>
+        <h3>Mô tả sản phẩm:</h3>
+        <p>{{product.desc}}</p>
+    </div>
+
+    <div>
+        <h3>Biến thể:</h3>
+        <ul>
+        {{#each product.vars}}
+            <li>{{this.name}} - Giá: {{this.price}}</li>
+        {{/each}}
+        </ul>
+    </div>
+
+    <button>Mua ngay</button>
+    <button>Thêm vào giỏ hàng</button>
+</body>
+</html>
