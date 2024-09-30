@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/output2.css" rel="stylesheet">
+    <title>Product List</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mb-4">Product List</h1>
+        
+        <!-- Nút Add Product -->
+        <div class="mb-4">
+            <a href="/add" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Product</a>
+        </div>
+
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                <tr>
+                    <td class="border px-4 py-2"><%= product.name %></td>
+                    <td class="border px-4 py-2">$<%= product.price %></td>
+                    <td class="border px-4 py-2">
+                        <a href="/<%= product.id %>" class="text-blue-500 hover:underline">Details</a>
+                        <a href="/edit/<%= product.id %>" class="text-green-500 hover:underline ml-2">Edit</a>
+                        <form action="/delete/<%= product.id %>" method="POST" class="inline">
+                            <button type="submit" class="text-red-500 hover:underline ml-2" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

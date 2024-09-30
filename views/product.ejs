@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/output.css" rel="stylesheet">
+    <title>Product Details</title>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-6">
+        <h1 class="text-2xl font-bold mb-4"><%= product.name %></h1>
+        <img src="<%= product.image %>" alt="<%= product.name %>" class="mb-4 rounded" />
+        <p class="text-lg font-semibold">Price: $<%= product.price.toFixed(2) %></p>
+        <p class="mt-2"><%= product.description %></p>
+        <div class="mt-4">
+            <a href="/edit/<%= product.id %>" class="bg-yellow-500 text-white px-4 py-2 rounded">Edit</a>
+            <form action="/delete/<%= product.id %>" method="POST" class="inline">
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+            </form>
+        </div>
+        <a href="/" class="mt-4 inline-block text-blue-500">Back to Products</a>
+    </div>
+</body>
+</html>
